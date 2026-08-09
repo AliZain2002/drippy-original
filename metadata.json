@@ -1,0 +1,6 @@
+{
+  "name": "Drippy",
+  "description": "AI-powered digital wardrobe and outfit recommendation app. DRIP. SERVED DAILY.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

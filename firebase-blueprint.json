@@ -1,0 +1,167 @@
+{
+  "entities": {
+    "users": {
+      "title": "User Profile",
+      "description": "User profiles and streak tracking",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "username": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "profileImage": { "type": "string" },
+        "bio": { "type": "string" },
+        "currentStreak": { "type": "number" },
+        "longestStreak": { "type": "number" },
+        "lastDripDate": { "type": "string" },
+        "locationMode": { "type": "string" },
+        "city": { "type": "string" },
+        "country": { "type": "string" },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "username", "email", "createdAt"]
+    },
+    "wardrobeItems": {
+      "title": "Wardrobe Item",
+      "description": "Clothing items owned by user",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "subcategory": { "type": "string" },
+        "colors": { "type": "array", "items": { "type": "string" } },
+        "pattern": { "type": "string" },
+        "style": { "type": "string" },
+        "season": { "type": "array", "items": { "type": "string" } },
+        "formality": { "type": "string" },
+        "confidence": { "type": "number" },
+        "timesWorn": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "required": ["id", "userId", "imageUrl", "name", "category"]
+    },
+    "looks": {
+      "title": "Outfit Look",
+      "description": "Generated or posted outfit combinations",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "authorName": { "type": "string" },
+        "authorHandle": { "type": "string" },
+        "authorAvatar": { "type": "string" },
+        "itemIds": { "type": "array", "items": { "type": "string" } },
+        "imageUrl": { "type": "string" },
+        "outfitName": { "type": "string" },
+        "reason": { "type": "string" },
+        "caption": { "type": "string" },
+        "weatherSuitability": { "type": "number" },
+        "occasionSuitability": { "type": "number" },
+        "styleDescription": { "type": "string" },
+        "occasion": { "type": "string" },
+        "likesCount": { "type": "number" },
+        "commentsCount": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "itemIds", "outfitName"]
+    },
+    "likes": {
+      "title": "Look Like",
+      "description": "User likes on looks",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "lookId": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "lookId"]
+    },
+    "comments": {
+      "title": "Look Comment",
+      "description": "Comments on looks",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "username": { "type": "string" },
+        "userAvatar": { "type": "string" },
+        "lookId": { "type": "string" },
+        "text": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "lookId", "text"]
+    },
+    "savedLooks": {
+      "title": "Saved Look",
+      "description": "User saved looks",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "lookId": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "lookId"]
+    },
+    "dailyActivities": {
+      "title": "Daily Activity",
+      "description": "Drip streak daily actions",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "date": { "type": "string" },
+        "activityType": { "type": "string" },
+        "lookId": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "date", "activityType"]
+    },
+    "outfitFeedback": {
+      "title": "Outfit Feedback",
+      "description": "User feedback on recommended outfits",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "outfitId": { "type": "string" },
+        "itemIds": { "type": "array", "items": { "type": "string" } },
+        "feedbackType": { "type": "string" },
+        "feedbackReason": { "type": "string" },
+        "weather": { "type": "object" },
+        "occasion": { "type": "string" },
+        "style": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "feedbackType", "createdAt"]
+    },
+    "outfitHistory": {
+      "title": "Outfit History",
+      "description": "History of generated and recommended outfits for personalization",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "itemIds": { "type": "array", "items": { "type": "string" } },
+        "weather": { "type": "object" },
+        "occasion": { "type": "string" },
+        "style": { "type": "string" },
+        "generatedAt": { "type": "string" },
+        "score": { "type": "number" },
+        "selected": { "type": "boolean" },
+        "liked": { "type": "boolean" },
+        "saved": { "type": "boolean" },
+        "worn": { "type": "boolean" }
+      },
+      "required": ["id", "userId", "itemIds", "generatedAt"]
+    }
+  }
+}
